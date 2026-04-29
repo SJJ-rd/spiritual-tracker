@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>生活轉化修持打卡系統</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div class="lotus">🪷</div>
+      <h1>生活轉化修持打卡系統</h1>
+      <p>叩首、木魚節奏、鳴磬、十二願、習氣轉化與每日回向紀錄</p>
+    </section>
+
+    <section class="card counter-card">
+      <h2>叩首修行</h2>
+      <div class="progress-ring">
+        <div>
+          <strong id="bowCount">0</strong>
+          <span>/ 1000 叩</span>
+        </div>
+      </div>
+      <div class="progress-bar"><div id="progressFill"></div></div>
+      <p id="statusText" class="status">尚未開始</p>
+
+      <div class="controls">
+        <button id="startBtn">開始叩首</button>
+        <button id="pauseBtn">暫停</button>
+        <button id="resetBtn">重置</button>
+      </div>
+
+      <div class="bpm-box">
+        <label>BPM 節奏</label>
+        <input id="bpmInput" type="number" min="10" max="120" value="30" />
+        <div class="quick-bpm">
+          <button data-bpm="20">20</button>
+          <button data-bpm="30">30</button>
+          <button data-bpm="40">40</button>
+          <button data-bpm="60">60</button>
+        </div>
+        <p>目前節奏：<span id="secondsPerBow">2.0</span> 秒 / 叩</p>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>今日儀軌打卡</h2>
+        <label><input type="checkbox" id="ritualDone"> 今日已完成完整儀軌</label>
+        <label><input type="checkbox" id="mantraDone"> 今日已持誦真言</label>
+        <label><input type="checkbox" id="dedicationDone"> 今日已完成回向</label>
+        <p class="small">連續修持：<strong id="streakDays">0</strong> 天</p>
+      </div>
+
+      <div class="card">
+        <h2>十二願修持</h2>
+        <select id="vowSelect"></select>
+        <label><input type="checkbox" id="vowDone"> 今日有做到</label>
+        <label><input type="checkbox" id="vowReflect"> 今日需反省</label>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>習氣轉化紀錄</h2>
+      <textarea id="awareness" placeholder="今日覺察一個習氣"></textarea>
+      <textarea id="transformation" placeholder="今日轉化一個習氣"></textarea>
+      <textarea id="rightMind" placeholder="今日堅定一個正念"></textarea>
+      <button id="saveBtn">儲存今日紀錄</button>
+    </section>
+
+    <section class="card history-card">
+      <h2>修持紀錄</h2>
+      <div id="historyList" class="history-list"></div>
+      <button id="clearHistoryBtn" class="ghost">清除全部紀錄</button>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

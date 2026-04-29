@@ -1,0 +1,63 @@
+:root {
+  --bg: #11100d;
+  --card: rgba(37, 31, 23, 0.92);
+  --gold: #d7b46a;
+  --gold2: #f1db9d;
+  --text: #fff8e8;
+  --muted: #b8aa8c;
+  --line: rgba(215, 180, 106, 0.25);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  background: radial-gradient(circle at top, #3a2d1c 0%, var(--bg) 48%, #080706 100%);
+  color: var(--text);
+}
+.app { width: min(980px, 94vw); margin: 0 auto; padding: 28px 0 60px; }
+.hero { text-align: center; padding: 28px 10px; }
+.lotus { font-size: 48px; }
+h1 { margin: 8px 0; letter-spacing: 2px; }
+p { color: var(--muted); }
+.card {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 24px;
+  padding: 22px;
+  margin: 16px 0;
+  box-shadow: 0 18px 45px rgba(0,0,0,.32);
+}
+h2 { margin-top: 0; color: var(--gold2); }
+.counter-card { text-align: center; }
+.progress-ring {
+  width: 190px; height: 190px; border-radius: 50%; margin: 18px auto;
+  display: grid; place-items: center;
+  background: conic-gradient(var(--gold) 0deg, rgba(255,255,255,.08) 0deg);
+  border: 1px solid var(--line);
+}
+.progress-ring div { width: 154px; height: 154px; border-radius: 50%; background: #15120e; display:grid; place-items:center; }
+.progress-ring strong { display:block; font-size: 48px; color: var(--gold2); }
+.progress-ring span { display:block; color: var(--muted); margin-top:-26px; }
+.progress-bar { height: 12px; background: rgba(255,255,255,.09); border-radius: 999px; overflow:hidden; }
+#progressFill { height: 100%; width:0%; background: linear-gradient(90deg, #b88a35, #ffe6a1); transition:.25s; }
+.status { font-size: 18px; color: var(--gold2); }
+.controls, .quick-bpm { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+button {
+  border:0; border-radius: 999px; padding: 12px 20px; cursor:pointer;
+  background: linear-gradient(135deg, #c99a42, #f1d28a); color:#17120a; font-weight:700;
+}
+button.ghost { background: transparent; border: 1px solid var(--line); color: var(--gold2); }
+.bpm-box { margin-top: 18px; }
+input[type="number"], select, textarea {
+  width: 100%; max-width: 560px; margin: 8px auto; display:block;
+  background: rgba(255,255,255,.07); border:1px solid var(--line); color:var(--text);
+  border-radius: 16px; padding: 12px; font-size: 16px;
+}
+textarea { min-height: 96px; resize: vertical; }
+label { display:block; margin: 12px 0; color: var(--text); }
+.grid { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.grid .card { margin: 0; }
+.small { font-size: 15px; }
+.history-list { display:grid; gap:10px; }
+.history-item { border: 1px solid var(--line); border-radius: 16px; padding: 12px; background: rgba(255,255,255,.04); }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .progress-ring { width:160px; height:160px; } .progress-ring div { width:130px; height:130px; } }
