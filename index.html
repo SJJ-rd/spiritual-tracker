@@ -1,88 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>生活轉化修持法｜儀軌打卡系統</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>修持儀軌系統</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <section class="hero">
-      <div class="lotus">🪷</div>
-      <h1>生活轉化修持法</h1>
-      <p>完整儀軌導引・BPM 木魚節奏・引磬提示・叩首打卡</p>
-    </section>
-    <section class="card">
-      <div class="section-head">
-        <div><h2>儀軌導引</h2><p id="stepMeta">第 1 段</p></div>
-        <button id="toggleFullRitualBtn" class="ghost">全文</button>
-      </div>
-      <div class="step-progress"><div id="stepProgressFill"></div></div>
-      <article id="ritualContent" class="ritual-content"></article>
-      <div class="ritual-controls">
-        <button id="prevStepBtn">⬅ 上一步</button>
-        <label class="checkline"><input type="checkbox" id="stepDoneChk"> 本段完成</label>
-        <button id="nextStepBtn">下一步 ➡</button>
-      </div>
-    </section>
-    <section id="fullRitualPanel" class="card hidden">
-      <h2>完整儀軌全文</h2>
-      <article id="fullRitualText" class="ritual-content"></article>
-    </section>
-    <section class="card counter-card">
-      <h2>叩首修行</h2>
-      <div class="progress-ring"><div><strong id="bowCount">0</strong><span>/ 1000 叩</span></div></div>
-      <div class="progress-bar"><div id="progressFill"></div></div>
-      <p id="statusText" class="status">尚未開始</p>
-      <div class="controls">
-        <button id="startBtn">開始叩首</button>
-        <button id="pauseBtn">暫停</button>
-        <button id="resetBtn">重置</button>
-        <button id="bellTestBtn" class="ghost">試聽引磬</button>
-        <button id="muyuTestBtn" class="ghost">試聽木魚</button>
-      </div>
-      <div class="bpm-box">
-        <label>BPM 節奏</label>
-        <input id="bpmInput" type="number" min="10" max="120" value="30" />
-        <div class="quick-bpm"><button data-bpm="20">20</button><button data-bpm="30">30</button><button data-bpm="40">40</button><button data-bpm="60">60</button></div>
-        <p>目前約 <strong id="secondsPerBow">2.0</strong> 秒一叩</p>
-      </div>
-      <div class="volume-grid">
-        <label>引磬音量 <input id="bellVol" type="range" min="0" max="1" step="0.05" value="1"></label>
-        <label>木魚音量 <input id="muyuVol" type="range" min="0" max="1" step="0.05" value="0.75"></label>
-      </div>
-      <audio id="bellAudio" src="assets/bells.mp3" preload="auto"></audio>
-      <audio id="muyuAudio" src="assets/muyu.mp3" preload="auto"></audio>
-    </section>
-    <section class="card checklist-card">
-      <h2>今日打卡</h2>
-      <div class="grid">
-        <label><input type="checkbox" id="ritualDone"> 完成完整儀軌</label>
-        <label><input type="checkbox" id="vowDone"> 十二願修持</label>
-        <label><input type="checkbox" id="dedicateDebt"> 回向冤親大德</label>
-        <label><input type="checkbox" id="dedicateAll"> 普迴向</label>
-      </div>
-      <label class="field">今日重點十二願<select id="vowSelect"></select></label>
-    </section>
-    <section class="card journal-card">
-      <h2>生活定錨・習氣轉化</h2>
-      <label class="field">今日覺察一個習氣<textarea id="awareText" rows="3"></textarea></label>
-      <label class="field">今日轉化一個習氣<textarea id="transformText" rows="3"></textarea></label>
-      <label class="field">今日堅定一個正念<textarea id="rightText" rows="3"></textarea></label>
-      <button id="saveJournalBtn">儲存今日紀錄</button>
-    </section>
-    <section class="card stats-card">
-      <h2>修持累積</h2>
-      <div class="stats">
-        <div><strong id="totalBows">0</strong><span>累積叩首</span></div>
-        <div><strong id="streakDays">0</strong><span>連續天數</span></div>
-        <div><strong id="completedDays">0</strong><span>完成日數</span></div>
-      </div>
-      <button id="exportBtn" class="ghost">匯出紀錄 JSON</button>
-    </section>
-    <footer>資料儲存在本機瀏覽器。清除瀏覽資料或更換裝置後，紀錄不會自動同步。</footer>
-  </main>
-  <script src="app.js"></script>
+
+<h1>🪷 修持儀軌系統</h1>
+
+<div class="box">
+  <h2>儀軌內容</h2>
+  <div id="ritual"></div>
+  <button onclick="prevStep()">⬅ 上一步</button>
+  <button onclick="nextStep()">下一步 ➡</button>
+</div>
+
+<div class="box">
+  <h2>叩首修行</h2>
+  <p>目前：<span id="count">0</span> / 1000</p>
+  <label>BPM：
+    <input type="number" id="bpm" value="30" min="10" max="80">
+  </label>
+  <button id="startBtn">開始修行</button>
+</div>
+
+<div class="box">
+  <h2>修行打卡</h2>
+  <label><input type="checkbox" id="done"> 今日完成儀軌</label>
+  <p>🔥 連續：<span id="streak">0</span> 天</p>
+</div>
+
+<div class="box">
+  <h2>習氣轉化</h2>
+  <textarea id="habit" placeholder="今日覺察 / 轉化"></textarea>
+  <button onclick="saveHabit()">儲存</button>
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
