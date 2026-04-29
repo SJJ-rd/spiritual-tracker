@@ -1,1 +1,25 @@
-:root{--bg:#100f0c;--card:rgba(38,31,23,.94);--card2:rgba(25,22,17,.96);--gold:#d8b66d;--gold2:#f4dda0;--text:#fff9e9;--muted:#b9aa8b;--line:rgba(216,182,109,.27)}*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;background:radial-gradient(circle at top,#3e301d 0%,var(--bg) 48%,#070604 100%);color:var(--text)}.app{width:min(980px,94vw);margin:0 auto;padding:28px 0 60px}.hero{text-align:center;padding:28px 10px}.lotus{font-size:52px}h1{margin:8px 0;letter-spacing:2px}p{color:var(--muted)}.card{border:1px solid var(--line);background:var(--card);border-radius:24px;padding:22px;margin:16px 0;box-shadow:0 18px 45px rgba(0,0,0,.32)}h2{margin:0 0 10px;color:var(--gold2)}button{border:0;border-radius:14px;padding:12px 18px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#24190a;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.22)}.ghost{background:transparent;color:var(--gold2);border:1px solid var(--line);box-shadow:none}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.section-head p{margin:0}.step-progress,.progress-bar{height:12px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;border:1px solid var(--line);margin:14px 0}.step-progress div,.progress-bar div{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));width:0}.ritual-content{white-space:pre-line;line-height:2;font-size:20px;background:var(--card2);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:330px}.ritual-controls,.controls{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:14px}.checkline{display:flex;gap:8px;align-items:center;color:var(--gold2)}.hidden{display:none}.counter-card{text-align:center}.progress-ring{width:190px;height:190px;border-radius:50%;margin:18px auto;display:grid;place-items:center;background:conic-gradient(var(--gold) 0deg,rgba(255,255,255,.08) 0deg);border:1px solid var(--line)}.progress-ring div{width:154px;height:154px;border-radius:50%;background:#15120e;display:grid;place-items:center}.progress-ring strong{display:block;font-size:48px;color:var(--gold2)}.progress-ring span{display:block;color:var(--muted);margin-top:-26px}.status{font-size:18px;color:var(--gold2)}.bpm-box{margin:20px auto 6px;padding:16px;border:1px solid var(--line);border-radius:18px;max-width:520px}.bpm-box input{width:100%;margin:10px 0;padding:12px;border-radius:12px;border:1px solid var(--line);background:#16120d;color:var(--text);font-size:20px;text-align:center}.quick-bpm{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.quick-bpm button{padding:8px 14px}.volume-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px auto;max-width:520px;color:var(--muted)}.volume-grid input{width:100%}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.grid label,.field{display:block;background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:16px;padding:14px;color:var(--text)}select,textarea{width:100%;margin-top:8px;border-radius:12px;border:1px solid var(--line);background:#15120e;color:var(--text);padding:12px;font-size:16px}textarea{resize:vertical}.journal-card button{margin-top:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stats div{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:18px;padding:18px;text-align:center}.stats strong{display:block;font-size:34px;color:var(--gold2)}.stats span{color:var(--muted)}footer{text-align:center;color:var(--muted);font-size:13px;padding:22px}@media(max-width:720px){.grid,.stats,.volume-grid{grid-template-columns:1fr}.ritual-content{font-size:18px;line-height:1.9;min-height:300px}.controls button,.ritual-controls button{flex:1}.checkline{width:100%;justify-content:center}.hero{padding:18px 5px}}
+body {
+  background: #111;
+  color: #eee;
+  font-family: sans-serif;
+  padding: 15px;
+}
+
+.box {
+  border: 1px solid #444;
+  margin: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 5px;
+  font-size: 16px;
+}
+
+#ritual {
+  white-space: pre-line;
+  font-size: 18px;
+  line-height: 1.8;
+}
