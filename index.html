@@ -5,64 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>修持儀軌系統</title>
 <link rel="stylesheet" href="style.css">
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#000000">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
 
 <h1>🪷 修持儀軌系統</h1>
 
-<div class="box">
-  <h2>儀軌內容</h2>
-  <div id="ritual"></div>
-  <button onclick="prevStep()">⬅ 上一步</button>
-  <button onclick="nextStep()">下一步 ➡</button>
+<div id="ritual"></div>
+<div id="status"></div>
+
+<p><span id="count">0</span> / 1000</p>
+<div style="width:80%;height:15px;background:#333;margin:auto;">
+<div id="progressBar" style="height:100%;width:0%;background:gold;"></div>
 </div>
 
-<div class="box">
-  <h2>叩首修行</h2>
-  <p>目前：<span id="count">0</span> / 1000</p>
-
-  <div class="progress">
-    <div id="progressBar"></div>
-  </div>
-
-  <label>BPM：
-    <input type="number" id="bpm" value="30" min="10" max="80">
-  </label>
-
-  <button id="startBtn">開始修行</button>
-  <button onclick="pausePractice()">暫停</button>
-  <button onclick="resetPractice()">重置</button>
-
-  <p id="status">尚未開始</p>
-</div>
-
-<div class="box">
-  <h2>修行打卡</h2>
-  <label><input type="checkbox" id="done"> 今日完成儀軌</label>
-  <p>🔥 連續：<span id="streak">0</span> 天</p>
-</div>
-
-<div class="box">
-  <h2>習氣轉化</h2>
-  <textarea id="habit" placeholder="今日覺察 / 今日轉化 / 今日正念"></textarea>
-  <button onclick="saveHabit()">儲存</button>
-</div>
-
-<div class="box">
-  <h2>📊 修行分析</h2>
-  <p>總累積叩首：<span id="total">0</span></p>
-  <p>目前等級：<span id="level">入門</span></p>
-  <canvas id="chart"></canvas>
-</div>
-
-<div class="box">
-  <h2>🔥 修行熱力圖</h2>
-  <div id="heatmap"></div>
-</div>
+<input type="number" id="bpm" value="30">
+<button id="startBtn">開始修行</button>
 
 <script src="app.js"></script>
 </body>
